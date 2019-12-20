@@ -178,37 +178,7 @@ $('#emailOrDomain').donetyping(function(callback) {
         });
   
 });
-    //   $("#target").submit(function(event) {
-    //     var val = $("#emailOrDomain").val();
-
-    //     var settings = {
-    //     "async": true,
-    //     "crossDomain": true,
-    //     "url": "https://api.debounce.io/v1/?api=5dfa48d292ddd&email=omartrigui1995@gmail.com",
-    //     "method": "GET",
-       
-    //     "headers": {}
-    //     }
-
-    //     $.ajax(settings).done(function (response) {
-    //     console.log(response);
-    //     });
-
-    //     // $.ajax({
-    //     //   url: endpoint + encodeURIComponent(val)
-    //     // })
-    //     //   .done(function(data) {
-    //     //     console.log(data);
-    //     //   })
-    //     //   .error(function(data) {
-    //     //     console.warn(data);
-    //     //   });
-    //     // console.log(val);
-    //     event.preventDefault();
-    //   });
-    function recaptchaCallback() {
-    $('#mybtn').removeAttr('disabled');
-};
+ 
     </script>
 <!--===============================================================================================-->
 
