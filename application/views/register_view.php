@@ -48,16 +48,20 @@
 					if($this->session->flashdata('message')){
 						echo'<div class="alert alert-success">'.$this->session->flashdata('message').'</div>';
 					}
-				
+					if($this->session->flashdata('error_msg')){
+						echo'<div class="alert alert-danger"><strong>'.$this->session->flashdata('error_msg').'</strong></div>';
+					}
 					?>
+					
                     <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="user_name" placeholder="username"  value="<?php echo set_value('user_name'); ?>">
-						<span class="text-danger"><?php echo form_error('user_name'); ?></span>
+					
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
 					</div>
+					<span class="text-danger"><?php echo form_error('user_name'); ?></span>
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text"  name="user_email" id="emailOrDomain"  value="<?php echo set_value('user_email'); ?>" placeholder="Email">
 						<span class="text-danger"><?php echo form_error('user_email'); ?></span>

@@ -23,8 +23,8 @@ class Register extends CI_Controller {
         $captcha = $this->input->post('g-recaptcha-response');
         $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LdwnMgUAAAAABcYCBVpb63w6xNQJWB7U-1h0IfO&response=" . $captcha . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
         if ($response . 'success' == false) {
-            $this->session->set_flashdata('error_msg', 'please check the captcha form');
-            
+      
+            $this->session->set_flashdata('message', 'Sorry Google Recaptcha Unsuccessful!!');
             return FALSE;
         } else {
             return TRUE;
@@ -62,8 +62,8 @@ class Register extends CI_Controller {
             'protocol'  => 'smtp',
             'smtp_host' => 'smtp.sendgrid.net',
             'smtp_port' => 587,
-            'smtp_user'  => 'omar_trigui', 
-            'smtp_pass'  => 'F4rYexH9G!D#4Cu', 
+            'smtp_user'  => 'omarwx', 
+            'smtp_pass'  => '+TbcL2^vfk&S!LH', 
             'mailtype'  => 'html',
             'charset'    => 'iso-8859-1',
             'wordwrap'   => TRUE
@@ -83,7 +83,8 @@ class Register extends CI_Controller {
         }
         else
         {
-        $this->index();
+            $this->session->set_flashdata('error_msg', 'Please check the  captcha form');
+            redirect('register');
         }
     }
     function verify_email()
