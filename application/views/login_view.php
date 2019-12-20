@@ -25,32 +25,44 @@
 					<img src="<?php base_url(); ?>assets/login/images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post" action="<?php echo base_url(); ?>login/validation">
 					<span class="login100-form-title">
 						Member Login
 						
 					</span>
+					<?php
+                if($this->session->flashdata('message'))
+                {
+                    echo '
+                    <div class="alert alert-success">
+                        '.$this->session->flashdata("message").'
+                    </div>
+                    ';
+                }
+                ?>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email">
+						<input class="input100" type="text" placeholder="Email" name="user_email" class="form-control" value="<?php echo set_value('user_email'); ?>" >
+						
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
+					<span class="text-danger"><?php echo form_error('user_email'); ?></span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="user_password" placeholder="Password" value="<?php echo set_value('user_password'); ?>">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
+					<span class="text-danger"><?php echo form_error('user_password'); ?></span>
 					
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Login
-						</button>
+					<input type="submit" name="login" value="Login" class="login100-form-btn" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>">Login</a>
+						
 					</div>
 
 					<div class="text-center p-t-12">

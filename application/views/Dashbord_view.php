@@ -166,12 +166,27 @@
                   </thead>
                  
                   <tbody>
+                    <?php 
+                    if($fetch_data->num_rows() >0 ) {
+                      foreach($fetch_data->result() as $row){
+                      ?>
+                      <tr>
+                        <td><?php echo $row->name; ?></td>
+                        <td><?php echo $row->email; ?></td>
+                        <td><?php echo $row->verification_key; ?></td>
+                        <td><?php echo $row->is_email_verified; ?></td>
+                      </tr>
+                       <?php 
+                      }
+                    }else{
+                    ?>
                     <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
+                      <td colspan="4"> No data found</td>
                     </tr>
+                    <?php
+                    }
+                    ?>
+                   
                   
                   </tbody>
                 </table>
